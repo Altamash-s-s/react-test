@@ -1,0 +1,110 @@
+
+.leadership_slder_sec {
+    background-color: #FFFFFF;
+    padding-bottom: 120px;
+    position: relative;
+    overflow: hidden;
+}
+.leader_slider_col {
+    margin-top: 40px;
+}
+.ldrshp_slider  .swiper-slide {
+    margin-left: 2px;
+}
+.ldr_sld_hd {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #313D47;
+    padding-bottom: 22px;
+    border-bottom: 1px dashed #2BB04C;
+    margin-bottom: 0;
+}
+.leader_sld {
+    margin-right: 35px;
+}
+.leader_sld a {
+    text-decoration: none;
+}
+.video_dv {
+    margin-bottom: 33px;
+    height: 225px;
+}
+.video_dv iframe {
+    width: 100%;
+    height: 100%;
+}
+.ldr_content h3 {
+    font-family: 'Barlow';
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-transform: capitalize;
+    color: #222222;
+}
+.ldr_content p {
+    font-family: 'Barlow';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #555555;
+}
+
+
+
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1280px) {
+}
+
+@media only screen and (min-device-width: 1281px) and (max-device-width: 1369px) {
+}
+
+@media only screen and (min-device-width: 1370px) and (max-device-width: 1440px) {
+}
+
+@media only screen and (min-device-width: 1441px) and (max-device-width: 1536px) {
+}
+
+@media only screen and (min-device-width: 1537px) and (max-device-width: 1600px) {
+}
+
+@media only screen and (min-device-width: 992px) and (max-device-width: 1199px) {
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 991px) {
+
+    .leader_sld {
+        margin-right: 15px;
+    }
+        
+    .ldr_content h3 {
+        font-size: 22px;
+        line-height: 26px;
+    }
+    .ldr_content p {
+        font-size: 15px;
+        line-height: 25px;
+        margin-top: 17px;
+        margin-bottom: 0;
+    }
+
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) {
+
+    .leader_sld {
+        margin-right: 15px;
+    }
+        
+    .ldr_content h3 {
+        font-size: 20px;
+        line-height: 26px;
+    }
+    .ldr_content p {
+        font-size: 15px;
+        line-height: 25px;
+        margin-top: 17px;
+        margin-bottom: 0;
+    }
+}
+
+

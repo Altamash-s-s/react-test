@@ -1,0 +1,95 @@
+import React from 'react'
+import useFetch from "react-fetch-hook";
+import { useParams } from "react-router-dom";
+import '../../assets/css/press_release_sec.css';
+
+import {
+    FacebookShareButton,
+    LinkedinShareButton,
+    TwitterShareButton,
+    PinterestShareButton,
+    VKShareButton,
+    WhatsappShareButton,
+    EmailShareButton,
+
+    FacebookIcon,
+    TwitterIcon,
+    LinkedinIcon,
+    PinterestIcon,
+    VKIcon,
+    WhatsappIcon,
+    EmailIcon
+  } from "react-share";
+
+export default function Press_release_sec() {
+
+    let { slug } = useParams(); 
+    const { isLoading, data, error } = useFetch(
+        `https://phpstack-725513-2688800.cloudwaysapps.com/cms/wp-json/wp/v2/press_release/?slug=${slug}`
+    );
+
+  return (
+    <>
+      <div className='press_rls_sec snap_sec'>
+        <div className='pr_container'>
+            {data && data.map(({ id ,title , acf , slug}) => ( 
+                <div className='row pr_row'>
+                    <div className='col-12 no_padding'>
+                        <p className='para pr_date'>{acf.publish_date} {acf.publish_month} {acf.publish_year}</p>
+                        <h2 className='section_sub_heading pr_hd'>{title.rendered}</h2>
+                        <img className='pr_img' src={acf.pr_spotlight_image}></img>
+                    </div>
+                    <div className='col-12 no_padding'>
+                        
+                        
+                            <div className='row'>
+
+                                {/* <div className='col-lg-1 col-md-1 col-1 social_col'>
+                                    
+                                    <div className='social_sticky_dv'>
+                                        <div className='social_dv'>
+                                            <FacebookShareButton url={"/press_release/" + slug} >
+                                                <FacebookIcon size={"2.5rem"} round={true}/>
+                                            </FacebookShareButton>
+                                        </div>   
+                                        <div className='social_dv'>
+                                            <LinkedinShareButton  url={"/press_release/" + slug}>
+                                                <LinkedinIcon size={"2.5rem"} round={true}/>
+                                            </LinkedinShareButton>
+                                        </div>
+                                        <div className='social_dv'>
+                                            <EmailShareButton  url={"/press_release/" + slug}>
+                                                <EmailIcon size={"2.5rem"} round={true}/>
+                                            </EmailShareButton>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                         */}
+                                <div className='col-lg-12s col-md-12 col-12 '>
+                                    {acf.pr_sub_heading.map((sub)=>
+                                        <div>
+                                            <h2 className='sub_para pr_sub_para' dangerouslySetInnerHTML={{ __html: sub.pr_heading }}></h2>
+                                            <p className='para pr_para' dangerouslySetInnerHTML={{ __html: sub.pr_description }}></p> 
+                                        </div>
+                                    )} 
+                                    {acf.media_contact_details.map((sub)=>
+                                        <div className='media_dv'>
+                                            <h5 className='media_hd'>Media Contact: {sub.media_name}</h5>
+                                            <p className='para'>{sub.media_person_name}</p>
+                                            <a href={"mailto:"+sub.media_person_mail} className='para'> {sub.media_person_mail}</a>
+                                            <p className='para'><b></b><a href={"tel:"+sub.media_person_mobile} className='para'> {sub.media_person_mobile}</a></p>
+                                        </div>
+                                    )} 
+                                </div>
+                                
+                            </div>
+                        
+                    </div>
+                </div>
+            ))} 
+        </div>
+      </div>
+    </>
+  )
+}

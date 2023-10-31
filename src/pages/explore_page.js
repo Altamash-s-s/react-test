@@ -1,0 +1,70 @@
+import React from 'react'
+
+import Header from '../components/global/header';
+import Explore_spotlight from '../components/spotlight/explore_spotlight';
+import Explore_overview from '../components/sections/explore_overview';
+import Our_purpose from '../components/sections/our_purpose';
+import Milestone_sec from '../components/sections/milestone_sec';
+import Leadership_sec from '../components/sections/leadership_sec';
+import Be_future from '../components/sections/be_future';
+
+import Footer from '../components/global/footer';
+
+
+import Transition from '../components/transition';
+import { gsap } from "gsap";
+import { useEffect , useRef } from 'react';
+import { Power3, Power4 } from "gsap";
+import Leadership_slider from '../components/sections/leadership_slider';
+import Helmet from 'react-helmet';
+
+export default function Explore_page() {
+  
+  let body = useRef(null);
+  var tl_1 = gsap.timeline()
+
+
+  useEffect(() => {
+
+    tl_1.to(body,{
+      opacity: "1",
+      pointerEvents: "auto",
+      ease: Power4.easeInOut,
+      delay: 1.2
+    });
+    return () => {
+      tl_1.to(body, {
+        opacity: "0",
+        pointerEvents: 'none'
+      });
+    }
+
+  })
+
+  return (
+    <>
+        <Transition/>
+        <div className='home_page'>
+
+        <Helmet>
+            <title>Industrial Parks in India | Horizon Industrial Parks</title>
+            <meta name="description" content="Horizon Industrial Parks offers the largest network of Grade A warehouses, high-quality modern industrial and logistics parks in India." />
+        </Helmet>
+        
+          <div ref={(el) => (body = el)} className="Headd">
+            
+              <Header/>
+              <Explore_spotlight/>
+              <Explore_overview/>
+              <Our_purpose/>
+              {/* <Milestone_sec/> */}
+              <Leadership_sec/>
+              <Leadership_slider/>
+              <Be_future/> 
+              <Footer/>
+
+          </div>
+        </div>
+    </>
+  )
+}
